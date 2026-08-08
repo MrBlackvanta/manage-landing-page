@@ -111,7 +111,12 @@
 }
 
 @utility v-shape {
-  @apply absolute -z-10 block bg-[url('/bg-pattern-shape.svg')] bg-contain bg-no-repeat;
+  @apply absolute -z-10 block;
+
+  &::before {
+    @apply absolute inset-0 m-auto h-[97.57%] w-[43.85%] rounded-pill bg-very-pale-red content-[''];
+    rotate: 45deg;
+  }
 }
 
 @utility v-slider {

@@ -31,6 +31,7 @@ export default function Hero() {
           src={illustration}
           alt=""
           priority
+          fetchPriority="high"
           className="m-[-3.705%] w-[107.41%] max-w-none"
         />
       </div>
