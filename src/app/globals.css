@@ -1,0 +1,194 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bright-red: #de370e;
+  --color-bright-red-hover: #c0300c;
+  --color-dark-blue: #242d52;
+  --color-dark-grayish-blue: #686e88;
+  --color-very-dark-blue: #1d1e25;
+  --color-very-pale-red: #fff0ec;
+  --color-very-light-gray: #fafafa;
+  --color-muted: #767676;
+  --color-muted-inverse: #8f8f93;
+  --color-error: #ec0f0f;
+  --color-error-inverse: #f34343;
+
+  --container-page: 69.375rem;
+
+  --text-display: clamp(3rem, 4.4vw, 3.5rem);
+  --text-display--line-height: 1.142857;
+  --text-display-sm: 2.5rem;
+  --text-display-sm--line-height: 3.125rem;
+  --text-heading: 2.5rem;
+  --text-heading--line-height: 2.75rem;
+  --text-heading-sm: 1.875rem;
+  --text-heading-sm--line-height: 2.8125rem;
+  --text-title: 1rem;
+  --text-title--line-height: 1.4375rem;
+  --text-body: 1rem;
+  --text-body--line-height: 1.625rem;
+  --text-body-sm: 0.875rem;
+  --text-body-sm--line-height: 1.75rem;
+  --text-link: 0.9375rem;
+  --text-label: 0.8125rem;
+
+  --tracking-tight: -0.017857em;
+  --tracking-display-sm: -0.025em;
+  --tracking-heading-sm: -0.020625em;
+  --tracking-link: -0.015625em;
+  --tracking-note: -0.007692em;
+
+  --radius-pill: 9999px;
+
+  --shadow-btn: 0 15px 15px -10px #ff664b;
+  --shadow-btn-inverse: 0 15px 15px -10px #b83923;
+}
+
+@theme inline {
+  --font-sans: var(--font-be-vietnam-pro);
+}
+
+@layer base {
+  html {
+    scrollbar-gutter: stable;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+  body {
+    @apply bg-white text-body text-dark-grayish-blue;
+  }
+  a,
+  button {
+    @apply v-focus-ring;
+  }
+  button:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@utility v-focus-ring {
+  @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-dark-blue;
+}
+
+@utility v-focus-ring-inverse {
+  @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white;
+}
+
+@utility v-container {
+  @apply mx-auto w-full px-6;
+  max-width: calc(var(--container-page) + 3rem);
+}
+
+@utility v-btn {
+  @apply inline-flex h-11 items-center justify-center rounded-pill px-7.5 text-label font-bold transition-colors motion-reduce:transition-none;
+}
+
+@utility v-btn-primary {
+  @apply bg-bright-red text-white shadow-btn hover:bg-bright-red-hover;
+}
+
+@utility v-btn-inverse {
+  @apply bg-white text-bright-red shadow-btn-inverse hover:text-bright-red-hover;
+}
+
+@keyframes v-reveal {
+  from {
+    transform: translateY(1.5rem);
+  }
+}
+
+@utility v-reveal {
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      animation: v-reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 80%;
+    }
+  }
+}
+
+@utility v-shape {
+  @apply absolute -z-10 block bg-[url('/bg-pattern-shape.svg')] bg-contain bg-no-repeat;
+}
+
+@utility v-slider {
+  @apply cursor-grab touch-pan-y overflow-hidden select-none active:cursor-grabbing;
+}
+
+@utility v-footer-link {
+  @apply text-link/5.5 tracking-link text-white transition-colors hover:text-bright-red motion-reduce:transition-none;
+}
+
+@utility v-social-link {
+  @apply block text-white transition-colors hover:text-bright-red motion-reduce:transition-none;
+}
+
+@utility v-menu-toggle {
+  @apply relative z-20 inline-flex text-dark-blue;
+}
+
+@utility v-menu-overlay {
+  @apply invisible fixed inset-0 z-10 opacity-0;
+  background-image: linear-gradient(to bottom, #0000, #0009);
+
+  &[data-open] {
+    @apply visible opacity-100;
+  }
+}
+
+@utility v-menu-panel {
+  @apply flex flex-col gap-6 rounded bg-white px-6 py-10 text-center leading-5.75;
+  box-shadow: 0 10px 20px rgb(80 86 98 / 0.03);
+}
+
+.v-menu-bar {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.v-menu-toggle[aria-expanded="true"] .v-menu-bar-top {
+  translate: 0 7px;
+  rotate: 45deg;
+}
+
+.v-menu-toggle[aria-expanded="true"] .v-menu-bar-middle {
+  opacity: 0;
+  scale: 0.4 1;
+}
+
+.v-menu-toggle[aria-expanded="true"] .v-menu-bar-bottom {
+  translate: 0 -7px;
+  rotate: -45deg;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .v-menu-bar {
+    transition:
+      translate 250ms ease,
+      rotate 250ms ease,
+      opacity 150ms ease,
+      scale 250ms ease;
+  }
+
+  .v-menu-overlay {
+    transition:
+      opacity 250ms ease,
+      visibility 250ms;
+  }
+
+  .v-menu-panel {
+    translate: 0 -1rem;
+    transition: translate 250ms ease;
+  }
+
+  .v-menu-overlay[data-open] .v-menu-panel {
+    translate: 0 0;
+  }
+}
+
+@utility v-nav-link {
+  @apply text-label font-medium text-dark-blue transition-colors hover:text-dark-grayish-blue motion-reduce:transition-none;
+}
