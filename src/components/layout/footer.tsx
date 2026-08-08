@@ -12,7 +12,7 @@ export default function Footer() {
 
         <nav
           aria-label="Footer"
-          className="mx-auto grid w-66 grid-cols-2 gap-x-4 text-left lg:col-span-2 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:mx-0 lg:w-auto"
+          className="mx-auto flex w-66 justify-between text-left lg:col-span-2 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:mx-0 lg:grid lg:w-auto lg:grid-cols-2 lg:justify-normal lg:gap-x-4"
         >
           {footerLinkColumns.map((column) => (
             <ul

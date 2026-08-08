@@ -90,14 +90,19 @@ hero display size is fluid between 1024 and 1440 — pinned at 56px it wraps to 
   CTA button lands at x=1279, four pixels past the 1275 content edge. Both ship at 165/1275.
 - The header logo sits 7px below the centre of a row whose nav and button are centred. It is
   centred.
+- The mobile footer centres its logo, social row and copyright, but the link columns sit at
+  63–327 on a 375 frame, 7.5px right of centre. The block is centred. Inside it the two columns
+  are spread to its edges, as the design draws them — the design's 169px column pitch, not two
+  equal halves — leaving 4.7px of the wider font as the only residual.
 - Mobile gutters run 16, 17, 22, 24, 26, 27, 29, 32 and 33.5px. Everything uses 24 except the
   feature block, which keeps 16 — that is the gutter that gives its paragraphs the design's
   four lines.
 
 **Two places where the page will not pixel-match the mock.** The mobile section intro is
 hard-wrapped to four lines in the design and wraps naturally to three, so everything below it
-sits about 21px higher. And the footer is ~30px taller than the mock because it carries the
-attribution line, which the mock has no room for.
+sits about 21px higher. And the footer is taller than the mock because it carries the
+attribution line, which the mock has no room for — 275 against 250 on desktop, and 581 against
+537 at 375, where the attribution wraps to two lines.
 
 **The slider loops and drags, neither of which the design specifies.** It runs on
 [Embla Carousel](https://www.embla-carousel.com/), which was worth the 5 KB: a first pass built
@@ -122,8 +127,10 @@ fits and a proportional gutter below that.
 **The menu button is one icon, not two.** Three bars that rotate and converge into the X rather
 than a hamburger swapped for a close control. That rules out `<dialog showModal()>`, whose
 modal inertness would make the button unclickable while the menu is open, so the menu is a
-disclosure — `aria-expanded` plus `aria-controls` — with Escape, scrim-click and scroll lock
-wired manually. The morphed X is a little smaller than the 21x22 the design draws, because it
+disclosure — `aria-expanded` plus `aria-controls` — with Escape, scrim-click, scroll lock and
+focus return wired manually. Focus return matters and no automated audit catches it: all three
+close paths leave focus on a link that is about to become `visibility: hidden`, so the next Tab
+would restart from the top of the document. The morphed X is a little smaller than the 21x22 the design draws, because it
 is the hamburger's own 25px bars rotated rather than a separate glyph.
 
 **Section reveals are transform-only, no fade.** They are CSS scroll-driven animations
