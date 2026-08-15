@@ -12,7 +12,7 @@ const beVietnamPro = Be_Vietnam_Pro({
 const title = "Manage landing page";
 const description =
   "Manage makes it simple for software teams to plan day-to-day tasks while keeping the larger team goals in view — a Frontend Mentor challenge built with Next.js, TypeScript, and Tailwind CSS.";
-const siteUrl = "https://vanta-manage-landing-page.netlify.app";
+const siteUrl = "https://manage-landing-page.abdelrhman-ahmed8881.workers.dev";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

@@ -21,7 +21,8 @@ This is a solution to the [Manage landing page challenge on Frontend Mentor](htt
 ### Links
 
 - Solution URL: [GitHub](https://github.com/MrBlackvanta/manage-landing-page)
-- Live Site URL: [Netlify](https://vanta-manage-landing-page.netlify.app)
+- Live Site URL: [Cloudflare](https://manage-landing-page.abdelrhman-ahmed8881.workers.dev)
+- Mirror: [Netlify](https://vanta-manage-landing-page.netlify.app)
 
 ## My process
 
