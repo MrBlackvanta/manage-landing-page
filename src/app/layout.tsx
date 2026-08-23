@@ -9,10 +9,16 @@ const beVietnamPro = Be_Vietnam_Pro({
   display: "swap",
 });
 
-const title = "Manage landing page";
+const title = "Manage | Project management for product teams";
 const description =
-  "Manage makes it simple for software teams to plan day-to-day tasks while keeping the larger team goals in view — a Frontend Mentor challenge built with Next.js, TypeScript, and Tailwind CSS.";
+  "Manage keeps software teams on their day-to-day tasks without losing sight of the wider company goals. Plan, track and report from one place.";
 const siteUrl = "https://manage-landing-page.abdelrhman-ahmed8881.workers.dev";
+const shareCard = {
+  url: "/opengraph-image.jpg",
+  width: 1200,
+  height: 630,
+  alt: "Manage, project management for software teams",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -23,14 +29,16 @@ export const metadata: Metadata = {
     title,
     description,
     url: "/",
-    siteName: title,
+    siteName: "Manage",
     locale: "en_US",
     type: "website",
+    images: [shareCard],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title,
     description,
+    images: [shareCard],
   },
 };
 
