@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Be_Vietnam_Pro } from "next/font/google";
+import { siteUrl } from "@/app/site";
 import "./globals.css";
 
 const beVietnamPro = Be_Vietnam_Pro({
@@ -12,7 +13,6 @@ const beVietnamPro = Be_Vietnam_Pro({
 const title = "Manage | Project management for product teams";
 const description =
   "Manage keeps software teams on their day-to-day tasks without losing sight of the wider company goals. Plan, track and report from one place.";
-const siteUrl = "https://manage-landing-page.abdelrhman-ahmed8881.workers.dev";
 const shareCard = {
   url: "/opengraph-image.jpg",
   width: 1200,
